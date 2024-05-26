@@ -1,0 +1,7 @@
+#!name=Unlock Camera360
+#!desc=Camera360
+[MITM]
+hostname = %APPEND% *.camera360.com
+[Script]
+Camera360 = type=http-response,pattern=^https?:\/\/.*\.camera360\.com\/(api\/(order\/purchase|iap\/check-receipt)|v\d\/operational-positions),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/camera360.js,script-update-interval=0
+Camera360-Mix = requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/mix.js,type=http-response,pattern=^https:\/\/cdn-bm\.camera360\.com\/api\/mix\/recovery

@@ -1,0 +1,91 @@
+#!name=AllinOne
+#!desc=UnlockPremium
+
+[Rule]
+AND, ((DOMAIN-SUFFIX, googlevideo.com), (PROTOCOL,UDP)), REJECT
+AND, ((DOMAIN, youtubei.googleapis.com), (PROTOCOL,UDP)), REJECT
+
+[Rewrite]
+https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad reject-200
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
+
+[Script]
+#Sub-Store
+#hostname = sub.store
+http-request ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=Sub-Store Core
+http-request ^https?:\/\/sub\.store script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js, requires-body=true, timeout=120, tag=Sub-Store Simple
+
+cron "55 23 * * *" script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, timeout=120, tag=Sub-Store Sync
+#************************************#
+#Youtube
+#hostname = *.googlevideo.com, youtubei.googleapis.com
+http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_request.js, requires-body=true, binary-body-mode=true, tag=YouTube请求
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body=true, binary-body-mode=true, tag=YouTube响应
+
+#************************************#
+#Camscanner
+#hostname = ap*.intsig.net
+http-response https:\/\/(api|api-cs.*)\.intsig\.net\/purchase\/cs\/query_prop requires-body=1, script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/camscaner.js, tag=Camscanner
+
+#************************************#
+#Nicegram
+#hostname = nicegram.cloud
+http-response ^https?:\/\/(nicegram\.cloud\/api\/v\d\/user\/info|restore-access\.indream\.app\/restoreAccess) requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/Nicegram.js, script-update-interval=0, tag=Nicegram
+
+#************************************#
+#SpotifyPremium
+#hostname = spclient.wg.spotify.com
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ requires-body=0, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, tag=Spotify
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ requires-body=1, binary-body-mode=1, max-size=0, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, tag=Spotify
+
+#************************************#
+#Camera360-Mix
+#hostname = *.camera360.com
+http-response ^https?:\/\/.*\.camera360\.com\/(api\/(order\/purchase|iap\/check-receipt)|v\d\/operational-positions) requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/camera360.js, script-update-interval=0, tag=Camera360
+http-response ^https:\/\/cdn-bm\.camera360\.com\/api\/mix\/recovery requires-body=1, script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/mix.js, tag=MIX
+
+#************************************#
+#Photoroom
+#hostname = api.revenuecat.com
+#http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/photoroom.js, requires-body=true, tag=RevenuecatUnlock
+#http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/photoroom.js, requires-body=false, tag=Reheji
+
+#************************************#
+#Picsart
+#hostname = api.picsart.com
+http-response ^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/picsart.js, tag=Picsart
+
+#************************************#
+#Wink
+#hostname = api-sub.meitu.com
+http-response ^https?:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/wink.js, tag=Wink
+
+#************************************#
+#Truecaller
+#hostname = premium*.truecaller.com
+http-response ^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/truecaller.js, tag=Truecaller
+
+#************************************#
+#Wallpaper
+#hostname = premium*.truecaller.com
+http-response ^https:\/\/billing-ios\.wallpaperscraft\.com\/verify_receipt\/remove_ads$ requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/WallCraftFProCrack.js, tag=WallCraft
+
+#************************************#
+#Chatgp5
+#hostname = api.chatgp5.cc
+http-response ^https?:\/\/api\.chatgp5\.cc\/app\/user\/getCurrentInfo requires-body=1,script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/chat.js, tag=Chatgp5
+
+#************************************#
+#RevenueCat
+#hostname = api.revenuecat.com
+http-response ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$) requires-body=1,script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/revenuecat1.js, tag=RevenueCatRp
+http-request ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$) requires-body=0,script-path=https://raw.githubusercontent.com/zozocao/SurgeLK/main/scripts/zozocao/revenuecat1.js, tag=RevenueCatRq
+
+#************************************#
+[Map Local]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
+
+[MITM]
+hostname=api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
