@@ -97,6 +97,48 @@ scriptings:
     match: ^https:\/\/billing-ios\.wallpaperscraft\.com\/verify_receipt\/remove_ads$
     script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/WallCraftFProCrack.js
     body_required: true
+- http_response:
+    name: Adapty
+    match: https://api.adapty.io/api/v1/sdk/analytics/profiles
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Adapty.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: Facemoji
+    match: https://order.creativeappnow.com/iap/receipt
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Facemoji.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: qonversion
+    match: api.qonversion.io/v1/user/init
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/qonversion.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: AlightMotion
+    match: https://us-central1-alight-creative.cloudfunctions.net/getAccountStatusAndLicenses
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/AlightMotion.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: eSound
+    match: api.esound.app/account
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/eSound.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: Grammarly
+    match: ^https?:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Grammarly.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: TimeCut-Oldroll-InstaShot-Mp3ConverterNew-MotionNinja
+    match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js
+    body_required: true
+    update_interval: 5
 mitm:
   hostnames:
   - api-sub.meitu.com
@@ -112,3 +154,10 @@ mitm:
   - youtubei.googleapis.com
   - '*.camera360.com'
   - api.revenuecat.com
+  - api.esound.app
+  - us-central1-alight-creative.cloudfunctions.net
+  - api.qonversion.io
+  - api.adapty.io
+  - order.creativeappnow.com
+  - subscription.grammarly.com
+  - buy.itunes.apple.com
