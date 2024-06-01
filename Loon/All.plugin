@@ -86,8 +86,13 @@ http-response ^https:\/\/order\.creativeappnow\.com\/iap\/receipt requires-body=
 #hostname = subscription.grammarly.com
 http-response ^https:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$ requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Grammarly.js, tag=Grammarly
 
+#************************************#
+#iTunes
+#hostname = buy.itunes.apple.com
+http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js, tag=TimeCut-Oldroll-InstaShot-Mp3ConverterNew-MotionNinja
+
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
-hostname=subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
+hostname=buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
