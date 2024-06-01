@@ -63,7 +63,7 @@ Truecaller = type=http-response,pattern=^https://premium-(.+)\.truecaller\.com/v
 
 #************************************#
 #Wallpaper
-#hostname = premium*.truecaller.com
+#hostname = *.wallpaperscraft.com
 Wallpaper = type=http-response,pattern=^https:\/\/billing-ios\.wallpaperscraft\.com\/verify_receipt\/remove_ads$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/WallCraftFProCrack.js
 
 #************************************#
