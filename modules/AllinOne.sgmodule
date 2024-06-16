@@ -42,9 +42,10 @@ Camera360 = type=http-response,pattern=^https?:\/\/.*\.camera360\.com\/(api\/(or
 Camera360-Mix = requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/mix.js,type=http-response,pattern=^https:\/\/cdn-bm\.camera360\.com\/api\/mix\/recovery
 
 #************************************#
-#Photoroom
+#Revenuecat
 #hostname = api.revenuecat.com
-Photoroom = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/photoroom.js,script-update-interval=-1
+Revenuecat = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/revenuecat.js,script-update-interval=-1
+Revenuecat = type=http-request,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/revenuecat.js,script-update-interval=-1
 
 #************************************#
 #Picsart
@@ -71,4 +72,4 @@ Wallpaper = type=http-response,pattern=^https:\/\/billing-ios\.wallpaperscraft\.
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
-hostname = %APPEND% api-sub.meitu.com, api.picsart.com, *.wallpaperscraft.com, premium*.truecaller.com, nicegram.cloud, sub.store, ap*.intsig.net, app.monkeyuni.net, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, *.camera360.com
+hostname = %APPEND% api.revenuecat.com,api-sub.meitu.com, api.picsart.com, *.wallpaperscraft.com, premium*.truecaller.com, nicegram.cloud, sub.store, ap*.intsig.net, app.monkeyuni.net, spclient.wg.spotify.com, *.googlevideo.com, youtubei.googleapis.com, *.camera360.com
