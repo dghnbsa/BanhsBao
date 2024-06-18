@@ -10,6 +10,8 @@ https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad 
 ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
 
 [Script]
 #Sub-Store
