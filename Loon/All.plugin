@@ -112,8 +112,13 @@ http-response ^https:\/\/api\.qonversion\.io\/v1\/user\/init requires-body=1,scr
 #hostname = us-central1-alight-creative.cloudfunctions.net
 http-response ^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/AlightMotion.js, tag=AlightMotion
 
+#************************************#
+#Snow
+#hostname = user-snow-api.snow.me
+http-response ^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js, tag=Snow
+
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
-hostname=us-central1-alight-creative.cloudfunctions.net,api.qonversion.io,api.esound.app,us-central1-muslim-pro-app.cloudfunctions.net,buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
+hostname=user-snow-api.snow.me,us-central1-alight-creative.cloudfunctions.net,api.qonversion.io,api.esound.app,us-central1-muslim-pro-app.cloudfunctions.net,buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
