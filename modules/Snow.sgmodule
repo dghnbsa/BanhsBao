@@ -1,0 +1,6 @@
+#!name=Unlock Snow
+#!desc=Snow
+[MITM]
+hostname = %APPEND% user-snow-api.snow.me
+[Script]
+Snow = type=http-response,pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js,script-update-interval=-1
