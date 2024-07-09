@@ -139,6 +139,12 @@ scriptings:
     script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js
     body_required: true
     update_interval: 5
+- http_response:
+    name: Snow
+    match: ^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js
+    body_required: true
+    update_interval: 5
 mitm:
   hostnames:
   - api-sub.meitu.com
@@ -161,3 +167,4 @@ mitm:
   - order.creativeappnow.com
   - subscription.grammarly.com
   - buy.itunes.apple.com
+  - user-snow-api.snow.me
