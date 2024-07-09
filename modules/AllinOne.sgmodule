@@ -72,56 +72,61 @@ Wallpaper = type=http-response,pattern=^https:\/\/billing-ios\.wallpaperscraft\.
 #************************************#
 #Chatgp5
 #hostname = api.chatgp5.cc
-http-response ^https?:\/\/api\.chatgp5\.cc\/app\/user\/getCurrentInfo requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/chat.js, tag=Chatgp5
+Chatgp5 = type=http-response,pattern=^https?:\/\/api\.chatgp5\.cc\/app\/user\/getCurrentInfo requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/chat.js, tag=Chatgp5
 
 #************************************#
 #RevenueCat
 #hostname = api.revenuecat.com
-http-response ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$) requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/revenuecat.js, tag=RevenueCat
+RevenueCat = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$) requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/revenuecat.js, tag=RevenueCat
 
 #************************************#
 #Adapty
 #hostname = api.adapty.io
-http-response ^https:\/\/api\.adapty\.io\/api\/v1\/sdk\/analytics\/profiles requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Adapty.js, tag=Adapty
+Adapty = type=http-response,pattern=^https:\/\/api\.adapty\.io\/api\/v1\/sdk\/analytics\/profiles requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Adapty.js, tag=Adapty
 
 #************************************#
 #Facemoji
 #hostname = order.creativeappnow.com
-http-response ^https:\/\/order\.creativeappnow\.com\/iap\/receipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Facemoji.js, tag=Facemoji
+Facemoji = type=http-response,pattern=^https:\/\/order\.creativeappnow\.com\/iap\/receipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Facemoji.js, tag=Facemoji
 
 #************************************#
 #Grammarly
 #hostname = subscription.grammarly.com
-http-response ^https:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$ requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Grammarly.js, tag=Grammarly
+Grammarly = type=http-response,pattern=^https:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$ requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Grammarly.js, tag=Grammarly
 
 #************************************#
 #iTunes
 #hostname = buy.itunes.apple.com
-http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js, tag=TimeCut-Oldroll-InstaShot-Mp3ConverterNew-MotionNinja
+iTunes = type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js, tag=TimeCut-Oldroll-InstaShot-Mp3ConverterNew-MotionNinja
 
 #************************************#
 #MuslimPro
 #hostname = us-central1-muslim-pro-app.cloudfunctions.net
-http-response ^https:\/\/us-central1-muslim-pro-app\.cloudfunctions\.net\/GetUserPremiumInfo requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/MuslimPro.js, tag=MuslimPro
+MuslimPro = type=http-response,pattern=^https:\/\/us-central1-muslim-pro-app\.cloudfunctions\.net\/GetUserPremiumInfo requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/MuslimPro.js, tag=MuslimPro
 
 #************************************#
 #eSound
 #hostname = api.esound.app
-http-response ^https:\/\/api.esound\.app\/account requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/eSound.js, tag=eSound
+eSound = type=http-response,pattern=^https:\/\/api.esound\.app\/account requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/eSound.js, tag=eSound
 
 #************************************#
 #qonversion
 #hostname = api.qonversion.io
-http-response ^https:\/\/api\.qonversion\.io\/v1\/user\/init requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/qonversion.js, tag=Qonversion
+qonversion = type=http-response,pattern=^https:\/\/api\.qonversion\.io\/v1\/user\/init requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/qonversion.js, tag=Qonversion
 
 #************************************#
 #AlightMotion
 #hostname = us-central1-alight-creative.cloudfunctions.net
-http-response ^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/AlightMotion.js, tag=AlightMotion
+AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/AlightMotion.js, tag=AlightMotion
+
+#************************************#
+#Snow
+#hostname = user-snow-api.snow.me
+Snow = type=http-response,pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js,script-update-interval=-1
 
 #************************************#
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
-hostname = %APPEND% us-central1-alight-creative.cloudfunctions.net,api.qonversion.io,api.esound.app,us-central1-muslim-pro-app.cloudfunctions.net,buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
+hostname = %APPEND% user-snow-api.snow.me,us-central1-alight-creative.cloudfunctions.net,api.qonversion.io,api.esound.app,us-central1-muslim-pro-app.cloudfunctions.net,buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
