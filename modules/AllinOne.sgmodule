@@ -16,12 +16,9 @@ https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad 
 [Script]
 #Sub-Store
 #hostname = sub.store
-Sub-Store Core=type=http-request,pattern=^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))),script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js,requires-body=true,timeout={{{timeout}}},ability="{{{ability}}}",engine={{{engine}}}
-
-Sub-Store Simple=type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js,requires-body=true,timeout={{{timeout}}},engine={{{engine}}}
-
+Sub-Store Core=type=http-request,pattern=^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))),script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js,requires-body=true,timeout={{{timeout}}},ability="{{{ability}}}",engine={{{engine}}}, tag=Substore-Core
+Sub-Store Simple=type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js,requires-body=true,timeout={{{timeout}}},engine={{{engine}}}, tag=Substore-Simple
 {{{sync}}}=type=cron,cronexp="{{{cronexp}}}",wake-system=1,timeout={{{timeout}}},script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js,engine={{{engine}}}
-
 {{{produce}}}=type=cron,cronexp="{{{produce_cronexp}}}",wake-system=1,timeout={{{timeout}}},script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js,engine={{{engine}}},argument="sub={{{produce_sub}}}&col={{{produce_col}}}"
 
 #************************************#
@@ -125,11 +122,20 @@ AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative
 #************************************#
 #Snow
 #hostname = user-snow-api.snow.me
-Snow = type=http-response,pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js,script-update-interval=-1
+Snow = type=http-response,pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js,script-update-interval=-1, tag=Snow
+
+#************************************#
+#Remini
+#hostname = %APPEND% *.oracle.bendingspoonsapps.com
+Remini = type=http-response,pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/remini.js,script-update-interval=-1, tag=Remini
+#************************************#
+#B612,Foodie
+#hostname = %APPEND% *.oracle.bendingspoonsapps.com
+B612 = type=http-response,pattern=^https?:\/\/(purchase-.*-api|user-kaji-api)\.(yiruikecorp|b612kaji|tianyancam)\.com\/v\d\/purchase\/subscription\/subscriber\/status,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/b612foodie.js,script-update-interval=-1, tag=B612-Foodie
 
 #************************************#
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
-hostname = %APPEND% user-snow-api.snow.me,us-central1-alight-creative.cloudfunctions.net,api.qonversion.io,api.esound.app,us-central1-muslim-pro-app.cloudfunctions.net,buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
+hostname = %APPEND% purchase-*-api.*.com, user-kaji-api.b612kaji.com,*.oracle.bendingspoonsapps.com,user-snow-api.snow.me,us-central1-alight-creative.cloudfunctions.net,api.qonversion.io,api.esound.app,us-central1-muslim-pro-app.cloudfunctions.net,buy.itunes.apple.com,subscription.grammarly.com,order.creativeappnow.com,api.adapty.io,api-sub.meitu.com,api.picsart.com,*.wallpaperscraft.com,premium*.truecaller.com,nicegram.cloud,sub.store,ap*.intsig.net,app.monkeyuni.net,spclient.wg.spotify.com,*.googlevideo.com,youtubei.googleapis.com,*.camera360.com,api.chatgp5.cc,api.revenuecat.com
