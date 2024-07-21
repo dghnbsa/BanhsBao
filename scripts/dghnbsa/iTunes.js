@@ -61,7 +61,7 @@ let obj = {
         "original_purchase_date" : "2024-02-11 09:09:10 Etc/GMT"
       }
     ],
-    "latest_receipt" : "banhsbao",
+    "latest_receipt" : "t.me/crackhub_69",
     "environment" : "Production",
     "pending_renewal_info" : [
       {
