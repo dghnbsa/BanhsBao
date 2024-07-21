@@ -1,4 +1,4 @@
-#!name=AllinOne
+#!name=𝓐𝓵𝓵𝓲𝓷𝓞𝓷𝓮
 #!desc=UnlockPremium
 
 [Rule]
@@ -12,6 +12,8 @@ https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad 
 ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
+^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+
 
 [Script]
 #Sub-Store
@@ -71,52 +73,52 @@ Wallpaper = type=http-response,pattern=^https:\/\/billing-ios\.wallpaperscraft\.
 #************************************#
 #Chatgp5
 #hostname = api.chatgp5.cc
-Chatgp5 = type=http-response,pattern=^https?:\/\/api\.chatgp5\.cc\/app\/user\/getCurrentInfo requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/chat.js, tag=Chatgp5
+Chatgp5 = type=http-response,pattern=^https?:\/\/api\.chatgp5\.cc\/app\/user\/getCurrentInfo,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/chat.js, tag=Chatgp5
 
 #************************************#
 #RevenueCat
 #hostname = api.revenuecat.com
-RevenueCat = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$) requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/revenuecat.js, tag=RevenueCat
+RevenueCat = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$),requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/revenuecat.js, tag=RevenueCat
 
 #************************************#
 #Adapty
 #hostname = api.adapty.io
-Adapty = type=http-response,pattern=^https:\/\/api\.adapty\.io\/api\/v1\/sdk\/analytics\/profiles requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Adapty.js, tag=Adapty
+Adapty = type=http-response,pattern=^https:\/\/api\.adapty\.io\/api\/v1\/sdk\/analytics\/profiles,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Adapty.js, tag=Adapty
 
 #************************************#
 #Facemoji
 #hostname = order.creativeappnow.com
-Facemoji = type=http-response,pattern=^https:\/\/order\.creativeappnow\.com\/iap\/receipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Facemoji.js, tag=Facemoji
+Facemoji = type=http-response,pattern=^https:\/\/order\.creativeappnow\.com\/iap\/receipt,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Facemoji.js, tag=Facemoji
 
 #************************************#
 #Grammarly
 #hostname = subscription.grammarly.com
-Grammarly = type=http-response,pattern=^https:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$ requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Grammarly.js, tag=Grammarly
+Grammarly = type=http-response,pattern=^https:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Grammarly.js, tag=Grammarly
 
 #************************************#
 #iTunes
 #hostname = buy.itunes.apple.com
-iTunes = type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js, tag=TimeCut-Oldroll-InstaShot-Mp3ConverterNew-MotionNinja
+iTunes = type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/iTunes.js, tag=TimeCut-Oldroll-InstaShot-Mp3ConverterNew-MotionNinja
 
 #************************************#
 #MuslimPro
 #hostname = us-central1-muslim-pro-app.cloudfunctions.net
-MuslimPro = type=http-response,pattern=^https:\/\/us-central1-muslim-pro-app\.cloudfunctions\.net\/GetUserPremiumInfo requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/MuslimPro.js, tag=MuslimPro
+MuslimPro = type=http-response,pattern=^https:\/\/us-central1-muslim-pro-app\.cloudfunctions\.net\/GetUserPremiumInfo,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/MuslimPro.js, tag=MuslimPro
 
 #************************************#
 #eSound
 #hostname = api.esound.app
-eSound = type=http-response,pattern=^https:\/\/api.esound\.app\/account requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/eSound.js, tag=eSound
+eSound = type=http-response,pattern=^https:\/\/api.esound\.app\/account,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/eSound.js, tag=eSound
 
 #************************************#
 #qonversion
 #hostname = api.qonversion.io
-qonversion = type=http-response,pattern=^https:\/\/api\.qonversion\.io\/v1\/user\/init requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/qonversion.js, tag=Qonversion
+qonversion = type=http-response,pattern=^https:\/\/api\.qonversion\.io\/v1\/user\/init,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/qonversion.js, tag=Qonversion
 
 #************************************#
 #AlightMotion
 #hostname = us-central1-alight-creative.cloudfunctions.net
-AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/AlightMotion.js, tag=AlightMotion
+AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/AlightMotion.js, tag=AlightMotion
 
 #************************************#
 #Snow
