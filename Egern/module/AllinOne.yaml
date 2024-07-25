@@ -17,7 +17,6 @@ scriptings:
     name: Sub-Store Core
     match: ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info)))
     script_url: https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js
-    timeout: 120
     body_required: true
 - http_request:
     name: Sub-Store Simple
@@ -25,10 +24,15 @@ scriptings:
     script_url: https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js
     body_required: true
 - schedule:
-    name: Sub-Store Sync
-    cron: 0 0 * * *
+    name: '{{{sync}}}'
+    cron: '{{{cronexp}}}'
     script_url: https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
-    timeout: 120
+- schedule:
+    name: '{{{produce}}}'
+    cron: '{{{produce_cronexp}}}'
+    script_url: https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
+    arguments:
+      _compat.$argument: '"sub={{{produce_sub}}}&col={{{produce_col}}}"'
 - http_request:
     name: youtube.request
     match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch)
@@ -145,8 +149,20 @@ scriptings:
     script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/snow.js
     body_required: true
     update_interval: 5
+- http_response:
+    name: B612
+    match: ^https?:\/\/(purchase-.*-api|user-kaji-api)\.(yiruikecorp|b612kaji|tianyancam)\.com\/v\d\/purchase\/subscription\/subscriber\/status
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/b612foodie.js
+    body_required: true
+- http_response:
+    name: Remini
+    match: ^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify)
+    script_url: https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/remini.js
+    body_required: true
 mitm:
   hostnames:
+  - '*.oracle.bendingspoonsapps.com'
+  - user-kaji-api.b612kaji.com
   - api-sub.meitu.com
   - api.picsart.com
   - '*.wallpaperscraft.com'
