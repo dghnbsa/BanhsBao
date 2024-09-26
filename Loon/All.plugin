@@ -26,6 +26,12 @@ cron "55 23 * * *" script-path=https://github.com/sub-store-org/Sub-Store/releas
 http-response https:\/\/(api|api-cs.*)\.intsig\.net\/purchase\/cs\/query_prop requires-body=1, script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/camscaner.js, tag=Camscanner
 
 #************************************#
+#Youtube
+#hostname = *.googlevideo.com, youtubei.googleapis.com
+http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_request.js, requires-body = true, binary-body-mode = true, tag=YouTubeRequest
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body = true, binary-body-mode = true, tag=YouTubeResponse
+
+#************************************#
 #Nicegram
 #hostname = nicegram.cloud
 http-response ^https?:\/\/(nicegram\.cloud\/api\/v\d\/user\/info|restore-access\.indream\.app\/restoreAccess) requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/Nicegram.js, script-update-interval=0, tag=Nicegram
