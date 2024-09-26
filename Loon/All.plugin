@@ -120,7 +120,7 @@ http-response ^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/
 ************************************#
 #Remini
 #hostname = *.oracle.bendingspoonsapps.com
-http-response ^https?:\/\/remini\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify|.*) requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/remini.js, tag=Remini
+#http-response ^https?:\/\/remini\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify|.*) requires-body=1,script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/remini.js, tag=Remini
 
 #************************************#
 #B612
