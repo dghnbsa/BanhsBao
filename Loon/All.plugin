@@ -46,7 +46,7 @@ http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|u
 #Camera360-Mix
 #hostname = *.camera360.com
 http-response ^https?:\/\/.*\.camera360\.com\/(api\/(order\/purchase|iap\/check-receipt)|v\d\/operational-positions) requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/camera360.js, script-update-interval=0, tag=Camera360
-http-response ^https:\/\/cdn-bm\.camera360\.com\/api\/mix\/recovery requires-body=1, script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/mix.js, tag=MIX
+http-response ^https?:\/\/cdn-bm\.camera360\.com\/api\/(mix\/(getinfo|purchase|recovery)|iap\/check-receipt) requires-body=1, script-path=https://raw.githubusercontent.com/dghnbsa/BanhsBao/banhsbao/scripts/dghnbsa/mix.js, tag=MIX
 
 #************************************#
 #Picsart
