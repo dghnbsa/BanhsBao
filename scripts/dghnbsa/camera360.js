@@ -1,38 +1,46 @@
-var chxm1023 = JSON.parse($response.body);
+var banhsbao = JSON.parse($response.body);
 
-const vip1 = '/api/order/purchase';
-const vip2 = '/api/iap/check-receipt';
-const ad = '/operational-positions';
+banhsbao = {
+  "data" : {
+    "results" : {
+      "locale" : "zh_CN",
+      "id" : "12fa6796-3be2-4e8e-b484-ee6def62554d",
+      "created_at" : "2022-11-25T13:07:24.057Z",
+      "subscriptions" : [
+        {
+          "id" : "f05cb9d3-6d5d-4b93-92ef-9c3794890f23",
+          "unit" : "day",
+          "group_id" : "90f0f427",
+          "autorenew_enabled" : false,
+          "expires_at" : null,
+          "in_retry_billing" : false,
+          "introductory_activated" : false,
+          "cancelled_at" : null,
+          "platform" : "ios",
+          "product_id" : "com.tm.replica.lifetime",
+          "retries_count" : 0,
+          "started_at" : "2022-11-25T13:10:34.000Z",
+          "local" : false,
+          "next_check_at" : "2023-11-13T08:12:39.075Z",
+          "kind" : "nonrenewable",
+          "units_count" : 1,
+          "environment" : "production",
+          "status" : "regular"
+        }
+      ],
+      "user_id" : "F5FDFBE8-13FA-45C4-88C7-CCB63E599223",
+      "currency" : {
+        "id" : "a5604c08-9833-4d8b-a677-f31e7717d8e5",
+        "country_code" : "CN",
+        "code" : "CNY"
+      },
+      "devices" : [
 
-if ($request.url.indexOf(vip1) != -1){
-  chxm1023["data"] = {
-    "originalTransactionId" : "490001464780901",
-    "errorCode" : 0,
-    "purchaseTime" : 1662685749,
-    "isTrialPeriod" : 1,
-    "expireTime" : 4092599349,
-    "sandbox" : 0
-  };
-}
+      ]
+    },
+    "meta" : null
+  },
+  "errors" : null
+};
 
-if ($request.url.indexOf(vip2) != -1){
-  chxm1023["data"] = {
-    "sandbox" : 0,
-    "purchaseTime" : 1662685749,
-    "isTrialPeriod" : 1,
-    "originalTransactionId" : "490001464780901",
-    "appleExpireTime" : 4092599349,
-    "productId" : "vip_yearly_3daysfree",
-    "appleVip" : 1,
-    "expireTime" : 4092599349,
-    "giftVip" : 1,
-    "operationVip" : 1,
-    "errorCode" : 0
-  };
-}
-
-if ($request.url.indexOf(ad) != -1){
-  chxm1023.Boot = [];
-}
-
-$done({body : JSON.stringify(chxm1023)});
+$done({body : JSON.stringify(banhsbao)});
